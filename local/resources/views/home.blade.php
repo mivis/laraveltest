@@ -8,7 +8,16 @@
 				<div class="panel-heading">Home</div>
 
 				<div class="panel-body">
-					You are logged in!
+					Вы вошли в систему!
+					@if($tovars)
+						@foreach ($tovars as $one)
+							<h2>{{$one->name}}</h2>
+							<div>{{$one->body}}</div>
+							<hr>
+						@endforeach
+						{!!$tovars->render()!!} <!--модуль пагинации -->
+					@endif	
+					Всего товаров в VIP={{$vip}} : {!!$tovars->total()!!}
 				</div>
 			</div>
 		</div>

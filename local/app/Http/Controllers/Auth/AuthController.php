@@ -28,7 +28,7 @@ class AuthController extends Controller {
 	 * @return void
 	 */
 	public function __construct(Guard $auth, Registrar $registrar)
-	{
+	{	parent::__construct();
 		$this->auth = $auth;
 		$this->registrar = $registrar;
 
