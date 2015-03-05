@@ -9,15 +9,16 @@
 
 				<div class="panel-body">
 					Вы вошли в систему!
-					@if($tovars)
+					@if(isset($tovars))
 						@foreach ($tovars as $one)
 							<h2>{{$one->name}}</h2>
 							<div>{{$one->body}}</div>
 							<hr>
 						@endforeach
 						{!!$tovars->render()!!} <!--модуль пагинации -->
+						Всего товаров в VIP={{$vip}} : {!!$tovars->total()!!}
 					@endif	
-					Всего товаров в VIP={{$vip}} : {!!$tovars->total()!!}
+					
 				</div>
 			</div>
 		</div>

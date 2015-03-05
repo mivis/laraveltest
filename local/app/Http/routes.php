@@ -19,6 +19,7 @@ Route::get('home', 'HomeController@index');
 Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
+	'adminka' => 'Adminka\MainController',
 	'/{id?}' => 'BaseController' //дефолтный роут который будет перехватывать все, что не указано в других роутах
 ]);
 // если auth/login/ то в контроллере должен быть экшн getLogin или postLogin

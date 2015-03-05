@@ -15,11 +15,7 @@ class BaseController extends Controller {
 	 */
 	public function getIndex()
 	{
-		$tovars=DB::table('products') 	-> where ('vip','=',1)
-										-> paginate(2);	//-> get()получить все, -> first () //-> first()получить текущую запись, ->paginate()
-		return view('home')	->with('tovars',$tovars) //1ый 'tovars' - имя в вьюшке
-							->with('vip','1');
-		
+		return view('home');		
 	}
 	public function addProducts()
 	{
