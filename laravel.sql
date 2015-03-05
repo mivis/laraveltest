@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: 127.0.0.1:3308
--- Время создания: Мар 03 2015 г., 19:38
+-- Время создания: Мар 05 2015 г., 19:50
 -- Версия сервера: 5.5.41-log
 -- Версия PHP: 5.4.35
 
@@ -104,6 +104,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `remember_token` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `is_admin` enum('0','1') COLLATE utf8_unicode_ci NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_email_unique` (`email`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
@@ -112,8 +113,8 @@ CREATE TABLE IF NOT EXISTS `users` (
 -- Дамп данных таблицы `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'name', 'name@name.ru', '$2y$10$7v.mmPkYQaw3FbKOFqpsXuFQDHbWUky4PrscgQekKI.KX2Wi0rTeK', 'TtzYmhb5tgxS9WkfFPHIiA73BMK8hugYNZ1Chex0z5FMVZiZRM4S2Er0GC3Q', '2015-03-03 12:41:46', '2015-03-03 14:11:18');
+INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `created_at`, `updated_at`, `is_admin`) VALUES
+(1, 'name', 'name@name.ru', '$2y$10$7v.mmPkYQaw3FbKOFqpsXuFQDHbWUky4PrscgQekKI.KX2Wi0rTeK', 'TtzYmhb5tgxS9WkfFPHIiA73BMK8hugYNZ1Chex0z5FMVZiZRM4S2Er0GC3Q', '2015-03-03 12:41:46', '2015-03-03 14:11:18', '1');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
