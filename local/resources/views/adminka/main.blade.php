@@ -45,16 +45,27 @@
 	<br><br>
 	<button type="submit" class="btn btn-default">Готово</button>
 	</form>
-	</div>
+	<br>
 	@if(isset($tovars))
-						@foreach ($tovars as $one)
-							<h2>{{$one->name}}</h2>
-							<div>{{$one->body}}</div>
-							<hr>
-						@endforeach
-						{!!$tovars->render()!!} <!--модуль пагинации -->
-						Всего товаров в VIP={{$vip}} : {!!$tovars->total()!!}
-					@endif	
-	
-	
+		<table border="1px" bordercolor="#dedede">
+			<tr><td width="400px">Изображение</td>
+				<td width="200px">Название</td>
+				<td width="200px">Цена</td>
+				<td width="200px">Категория</td>
+				<td width="200px">VIP позиция</td>
+			</tr>
+			@foreach ($tovars as $one)
+			<tr>			
+				<td>{{$one->picture}}</td>
+				<td>{{$one->name}}</td>
+				<td>{{$one->price}}</td>
+				<td>{{$one->catid}}</td>
+				<td>{{$one->vip}}</td>			
+			</tr>@endforeach
+		</table>
+			{!!$tovars->render()!!} <!--модуль пагинации -->
+			
+		
+	@endif	
+	</div>	
 @endsection

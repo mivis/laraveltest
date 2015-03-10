@@ -20,6 +20,10 @@ abstract class Controller extends BaseController {
 			$view	->with('tovars',$tovars)
 					->with('vip','1');
 		});
+		View::composer('adminka.main', function($view) { //делаем tovars доступной в шаблоне adminka/main
+			$tovars=DB::table('products') 	-> paginate(5);	//-> get()получить все, -> first () //-> first()получить текущую запись, ->paginate()
+			$view	->with('tovars',$tovars);
+		});
 	}
 }
 
