@@ -6,7 +6,7 @@
 	Форма редактирования товаров
 	<hr>
 	
-	<form method='post' action="{{asset('adminka/edit/'.$tovar->id)}}"> <!-- asset функция laravel -->
+	<form method='post' action="{{asset('adminka/edit/'.$tovar->id)}}" enctype='multipart/form-data'> <!-- asset функция laravel -->
 	<input type="hidden" name="_token" value="{{ csrf_token() }}">
 	<div class="form-group">
 		<label for="exampleInputPassword1">Имя</label>

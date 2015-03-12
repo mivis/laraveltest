@@ -5,7 +5,7 @@
 	<h2>Система администрирования</h2>
 	Здесь будет форма добавления товаров
 	<hr>
-	<form method='post' action="{{asset('adminka')}}"> <!-- asset функция laravel -->
+	<form method='post' action="{{asset('adminka')}}" enctype='multipart/form-data'> <!-- asset функция laravel -->
 	<input type="hidden" name="_token" value="{{ csrf_token() }}">
 	<div class="form-group">
 		<label for="exampleInputPassword1">Имя</label>
@@ -57,7 +57,7 @@
 			</tr>
 			@foreach ($tovars as $one)
 			<tr>			
-				<td>{{$one->picture}}</td>
+				<td><img src="/media/images/{{$one->picturesmall}}"></td>
 				<td>{{$one->name}}</td>
 				<td>{{$one->price}}</td>
 				<td>{{$one->catid}}</td>
@@ -69,7 +69,7 @@
 						@else
 						<? $showhide='show'; $textlink='Показать'?>
 					@endif
-					<a href='{{asset("adminka/$showhide/".$one->id)}}'><?echo $textlink?></a><br>
+					<a href='{{asset("adminka/$showhide/".$one->id)}}'>{{$textlink}}</a><br>
 					<a href='{{asset("adminka/delete/".$one->id)}}'>Удалить</a>
 				</td>
 			</tr>

@@ -144,6 +144,8 @@ return [
 		'App\Providers\ConfigServiceProvider',
 		'App\Providers\EventServiceProvider',
 		'App\Providers\RouteServiceProvider',
+		'Intervention\Image\ImageServiceProvider',	//добавили сервис провайдер для обработки изображений
+		'Barryvdh\Debugbar\ServiceProvider',
 
 	],
 
@@ -192,6 +194,8 @@ return [
 		'URL'       => 'Illuminate\Support\Facades\URL',
 		'Validator' => 'Illuminate\Support\Facades\Validator',
 		'View'      => 'Illuminate\Support\Facades\View',
+		'Image'		=> 'Intervention\Image\Facades\Image',	//добавили короткий алиас для использования с Use
+		'Debugbar' => 'Barryvdh\Debugbar\Facade',
 
 	],
 
