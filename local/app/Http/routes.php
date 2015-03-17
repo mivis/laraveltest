@@ -14,12 +14,16 @@
 //Route::get('/', 'WelcomeController@index');
 
 Route::get('home', 'HomeController@index');
+Route::get('test', function(){
+				$this->app->make('App\Libs\Cookie')->get();}
+			);
 //Route::get('products/add', 'BaseController@addProducts');
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
 	'adminka' => 'Adminka\MainController',
+	'cart' => 'CartController',
 	'/{id?}' => 'BaseController' //дефолтный роут который будет перехватывать все, что не указано в других роутах
 ]);
 // если auth/login/ то в контроллере должен быть экшн getLogin или postLogin

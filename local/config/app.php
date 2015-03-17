@@ -135,6 +135,7 @@ return [
 		'Illuminate\Translation\TranslationServiceProvider',
 		'Illuminate\Validation\ValidationServiceProvider',
 		'Illuminate\View\ViewServiceProvider',
+		'Barryvdh\Debugbar\ServiceProvider',
 
 		/*
 		 * Application Service Providers...
@@ -145,7 +146,8 @@ return [
 		'App\Providers\EventServiceProvider',
 		'App\Providers\RouteServiceProvider',
 		'Intervention\Image\ImageServiceProvider',	//добавили сервис провайдер для обработки изображений
-		'Barryvdh\Debugbar\ServiceProvider',
+		'App\Providers\CookieServiceProvider' // добавили наш провайдер
+		
 
 	],
 
@@ -195,7 +197,7 @@ return [
 		'Validator' => 'Illuminate\Support\Facades\Validator',
 		'View'      => 'Illuminate\Support\Facades\View',
 		'Image'		=> 'Intervention\Image\Facades\Image',	//добавили короткий алиас для использования с Use
-		'Debugbar' => 'Barryvdh\Debugbar\Facade',
+		'Debugbar' 	=> 'Barryvdh\Debugbar\Facade',
 
 	],
 
