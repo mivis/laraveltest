@@ -47,7 +47,30 @@
 			</tr>
 				
 		</table>
-			
+		<br><br>
+		<table border="1px" bordercolor="#dedede">
+		<font style="color:red"><b>ПОДТВЕРЖДЕНИЕ ЗАКАЗА</b><br>
+		
+			@if(count($errors)>0)
+				@foreach($errors->all() as $one)
+					{{$one}}<br>
+				@endforeach
+			@endif
+		
+		</font>
+			<form method='post' action="{{asset('cart/order')}}"> <!-- asset функция laravel -->
+				<input type="hidden" name="_token" value="{{ csrf_token() }}">
+					<div class="form-group">
+						<label for="exampleInputPassword1">Телефон</label>
+						<input type="phone" value"{{Input::old('phone')}}" class="form-control" name="phone" id="exampleInputPassword1" placeholder="Телефон...">
+					</div>
+					<div class="form-group">
+						<label for="exampleInputPassword1">Ваш комментарий</label>
+						<textarea class="form-control" name="comment" placeholder="Ваш комментарий..."></textarea>
+					</div>
+					<button type="submit" class="btn btn-default">Подтвердить</button>
+			</form>
+		</table>
 		
 	@endif	
 	</div>	

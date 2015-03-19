@@ -14,7 +14,7 @@ class MainController extends Controller {
 	// для вывод сделаем запрос в базу данных и через view передать переменную
 		$tovars=DB::table('products') 	-> paginate(5);
 	//или запрос через модели $tovars=\App\products::paginate(5);
-		return view('adminka.main') -> with('tovars',$tovars); //adminka.main точкой показывается вложенность папки
+		return view('adminka.main') -> with('tovars',$tovars); //adminka.main точкой показывается вложенность папки
 	}
 	public function getEdit($id=null) {
 		$tovar=\App\products::find($id);
@@ -110,5 +110,12 @@ class MainController extends Controller {
 												'picturesmall'=>$picsmall)
 									);
 		return Redirect('/adminka');
+	}
+	
+	//Вывод оформленных заказов
+	public function getOrders() {
+		$orders=DB::table('zakazs') 	-> paginate(5);
+		return view('adminka.orders') -> with('orders',$orders);
+		
 	}
 }

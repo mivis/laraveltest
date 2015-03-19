@@ -2,6 +2,8 @@
 
 use DB;
 use App;
+use Input;
+use Validator;
 
 class CartController extends Controller {
 	public function __construct()
@@ -41,5 +43,33 @@ class CartController extends Controller {
 		setcookie($id,'',time()-3600,'/');
 		return redirect('cart');
 	}
-
+	public function postOrder(){
+		$cookies=\App::make('\App\Libs\Cookie')->get();
+		$body=serialize($cookies);	
+		$zakaz=new \App\Zakazs; //новый элемент модели Zakazs
+		$confirminfo=Input::all(); //забираем в переменную все что передается постом из формы
+		//проверяем на обязательность заполнения телефона
+		$rules=array(
+			'phone'=>array('required')
+		);
+		$validation=Validator::make($confirminfo, $rules);
+		if ($validation->fails()){
+			$errors=$validation->messages();
+		}
+		if (!empty($errors)) {
+			return redirect('cart')->withErrors($errors);
+		}
+		//конец
+		$zakaz->comment=$confirminfo['comment']; //name- поле в таблице, $data['name'] - то что идет в POST
+		$zakaz->phone=$confirminfo['phone'];
+		$zakaz->body=$body;
+		$zakaz->ip=$_SERVER['REMOTE_ADDR'];
+		$zakaz->status='new';
+		//$zakaz->created_at=date('Y-m-d h:i:s');
+		$zakaz->save();
+		foreach ($cookies as $cookie=>$colvo) {
+			setcookie($cookie,'',time()-3600,'/');
+		}
+		return redirect('cart');
+	}
 }

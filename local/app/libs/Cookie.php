@@ -2,7 +2,7 @@
 
 class Cookie {//должно совпадать с именем файла
 	public $arr=array();
-	public $dbarr=array();
+	public $db_arr=array();
 	public function get(){
 		foreach($_COOKIE as $key=>$value){
 			$key=(int)$key;

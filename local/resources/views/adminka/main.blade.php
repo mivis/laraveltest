@@ -3,7 +3,7 @@
 @section('content')
 	<div style="width:800px; margin-left:50px">
 	<h2>Система администрирования</h2>
-	Здесь будет форма добавления товаров
+	<a href="/adminka">Товары</a> | <a href="/adminka/orders/">Заказы</a>
 	<hr>
 	<form method='post' action="{{asset('adminka')}}" enctype='multipart/form-data'> <!-- asset функция laravel -->
 	<input type="hidden" name="_token" value="{{ csrf_token() }}">
