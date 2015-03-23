@@ -4,20 +4,20 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "2cf3e60262ea085656e21d4c398ce570",
+    "hash": "d3cad8c221b34436925b2b11fa8736dd",
     "packages": [
         {
             "name": "barryvdh/laravel-debugbar",
-            "version": "v2.0.2",
+            "version": "v2.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/barryvdh/laravel-debugbar.git",
-                "reference": "7bdf8acf3b955f4fcf922e74abdfdec370369196"
+                "reference": "77be5170f3777e2e899ec98105ce5686cd4aa63b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/7bdf8acf3b955f4fcf922e74abdfdec370369196",
-                "reference": "7bdf8acf3b955f4fcf922e74abdfdec370369196",
+                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/77be5170f3777e2e899ec98105ce5686cd4aa63b",
+                "reference": "77be5170f3777e2e899ec98105ce5686cd4aa63b",
                 "shasum": ""
             },
             "require": {
@@ -58,7 +58,7 @@
                 "profiler",
                 "webprofiler"
             ],
-            "time": "2015-02-19 10:26:39"
+            "time": "2015-03-07 15:15:23"
         },
         {
             "name": "classpreloader/classpreloader",

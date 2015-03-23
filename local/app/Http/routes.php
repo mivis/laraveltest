@@ -22,8 +22,9 @@ Route::get('test', function(){
 Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
+	'adminka/orders' => 'Adminka\OrdersController',
 	'adminka' => 'Adminka\MainController',
-	'cart' => 'CartController',
+	'cart' => 'CartController',	
 	'/{id?}' => 'BaseController' //дефолтный роут который будет перехватывать все, что не указано в других роутах
 ]);
 // если auth/login/ то в контроллере должен быть экшн getLogin или postLogin

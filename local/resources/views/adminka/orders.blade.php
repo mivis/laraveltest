@@ -1,24 +1,51 @@
 @extends ('app')
 
 @section('content')
-	<div style="width:800px; margin-left:50px">
+	<div style="width:100%; margin-left:50px">
 	<h2>Заказы</h2>
 	<a href="/adminka">Товары</a> | <a href="/adminka/orders/">Заказы</a>
 	<hr>	
 	@if(isset($orders))
-		
-		<table border="1px" bordercolor="#dedede">
-			<tr><td width="400px">Изображение</td>
+		<table class="ttable" border="1px" bordercolor="#dedede">
+			<tr>
+				<td>Заказ</td>
+				<td>Телефон</td>
+				<td>Комментарий</td>
+				<td>Статус</td>
+				<td>Дата</td>
+				<td>IP</td>
+				<td>Действия</td>
 			</tr>
-			@foreach ($orders as $one)
-			
-			<?php
-		$bodyunser=unserialize($one->body);
-		print_r ($bodyunser);
-		?>
-			
+			@foreach ($orders as $one)						
 			<tr>			
-				<td>{{$one->body}}</td>
+				<td>
+				<?php
+				$bodyunser=unserialize($one->body);
+				foreach ($bodyunser as $id=>$kolvo) {
+					echo 'ID='.$id.' KOL='.$kolvo.'<br>';
+				}
+				?>
+				</td>
+				<td>{{$one->phone}}</td>
+				<td>{{$one->comment}}</td>
+				<td>
+				<form method='post' action="{{asset('adminka/orders/status/'.$one->id)}}">
+				<input type="hidden" name="_token" value="{{ csrf_token() }}">
+				<label class="radio-inline">
+					<input type="radio" name="status" id="inlineRadio1" value="new" <?=$one->status=='new'?'checked':''?>> new</input>
+				</label>
+				<label class="radio-inline">
+					<input type="radio" name="status" id="inlineRadio1" value="sended" <?=$one->status=='sended'?'checked':''?>> sended</input>
+				</label>
+				<label class="radio-inline">
+					<input type="radio" name="status" id="inlineRadio1" value="finished" <?=$one->status=='finished'?'checked':''?>> finished</input>
+				</label>	
+				<button type="submit" class="btn btn-default">Готово</button>
+				</form>
+				</td>
+				<td>{{$one->created_at}}</td>
+				<td>{{$one->ip}}</td>
+				<td><a href="{{asset('adminka/orders/delete/'.$one->id)}}">X</a></td>
 			</tr>
 			@endforeach
 		</table>

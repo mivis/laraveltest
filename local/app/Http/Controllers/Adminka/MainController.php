@@ -113,9 +113,5 @@ class MainController extends Controller {
 	}
 	
 	//Вывод оформленных заказов
-	public function getOrders() {
-		$orders=DB::table('zakazs') 	-> paginate(5);
-		return view('adminka.orders') -> with('orders',$orders);
-		
-	}
+	
 }
