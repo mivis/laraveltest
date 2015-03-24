@@ -15,10 +15,10 @@ abstract class Controller extends BaseController {
 			$view->with('styles', $this->styles); //в итоге app будет вызываться с стилями обозначенными в переменной $styles
 		});
 		View::composer('home', function($view) { //делаем tovars доступной в шаблоне home
-			$tovars=DB::table('products') 	-> where ('vip','=',1)
-											-> paginate(2);	//-> get()получить все, -> first () //-> first()получить текущую запись, ->paginate()
-			$view	->with('tovars',$tovars)
-					->with('vip','1');
+			$tovars=DB::table('products') 	//-> where ('vip','=',1)
+											-> paginate(8);	//-> get()получить все, -> first () //-> first()получить текущую запись, ->paginate()
+			$view	->with('tovars',$tovars);
+					//->with('vip','1');
 		});
 	}
 }

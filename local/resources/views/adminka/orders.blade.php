@@ -1,3 +1,4 @@
+
 @extends ('app')
 
 @section('content')
@@ -21,10 +22,19 @@
 				<td>
 				<?php
 				$bodyunser=unserialize($one->body);
+				$itogo=0;
 				foreach ($bodyunser as $id=>$kolvo) {
-					echo 'ID='.$id.' KOL='.$kolvo.'<br>';
+					$temp=DB::table('products') -> where ('id','=',$id)-> first();
+					if (!empty($temp->name)) {
+						echo $temp->name.' - '.$kolvo.'шт. Цена - '.$temp->price.' руб. <br />';
+					} else {
+						echo 'error<br />';
+					};
+				$summa=$temp->price*$kolvo;	
+				$itogo+=$summa;				
 				}
-				?>
+				echo '<font style="color:red">Сумма заказа = '.$itogo.'</font>';?>
+				
 				</td>
 				<td>{{$one->phone}}</td>
 				<td>{{$one->comment}}</td>

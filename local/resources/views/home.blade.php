@@ -26,7 +26,7 @@
 						<hr>
 						@endforeach
 						{!!$tovars->render()!!} <!--модуль пагинации -->
-						Всего товаров в VIP={{$vip}} : {!!$tovars->total()!!}
+						Всего товаров {!!$tovars->total()!!}
 					@endif						
 				</div>				
 			</div>

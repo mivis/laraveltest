@@ -2,19 +2,18 @@
 
 use Input; //для перехвата post данных
 use DB;
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\Adminka\MainController;
 
-class OrdersController extends Controller {
+class OrdersController extends MainController {
 	public function __construct() {
 		parent::__construct();
-		$this->middleware('admin');
 	}
 	
 	public function getIndex() {
-		$products = DB::table('products')->select('name', 'price')->get();
-		foreach ($products as $product){
-			echo $product->name.'<br>';		
-		}
+		//$products = DB::table('products')->select('name', 'price')->get();
+		//foreach ($products as $product){
+		//	echo $product->name.'<br>';		
+		//}
 		$orders=DB::table('zakazs') 	-> paginate(5);		
 		return view('adminka.orders') -> with('orders',$orders);
 	}
