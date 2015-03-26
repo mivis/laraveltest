@@ -1,6 +1,14 @@
 {
-  "devDependencies": {
-    "gulp": "^3.8.8",
-    "laravel-elixir": "*"
-  }
+    "name": "Projectname",
+    "version": "0.0.1",
+    "devDependencies" : {
+        "chalk": "latest",
+        "grunt" : "latest",
+        "grunt-contrib-jshint" : "latest",
+        "grunt-contrib-concat" : "latest",
+        "grunt-contrib-uglify" : "latest",
+        "grunt-contrib-cssmin" : "latest",
+        "grunt-contrib-watch"  : "latest",
+        "grunt-remove-logging" : "latest"
+    }
 }
