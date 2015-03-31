@@ -25,6 +25,7 @@ Route::controllers([
 	'adminka/orders' => 'Adminka\OrdersController',
 	'adminka' => 'Adminka\MainController',
 	'cart' => 'CartController',	
+	'/ajax' => 'AjaxController',
 	'/{id?}' => 'BaseController' //дефолтный роут который будет перехватывать все, что не указано в других роутах
 ]);
 // если auth/login/ то в контроллере должен быть экшн getLogin или postLogin
