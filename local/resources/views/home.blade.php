@@ -37,11 +37,29 @@
 	top:-1px;
 	font-size:12px;
 }
+.cart-window {
+	position:fixed;
+	top:70px;
+	right:0px;
+	width:200px;
+	border:1px solid orange;
+	border-right:0px;
+	box-shadow:2px 2px 20px black;
+	padding:10px;
+	background-color:#fff;	
+	border-radius:15px 0px 0px 15px;
+	display:none;
+}
 </style>
 <div class="container">
+	<div class="cart-window">
+	</div>
+	<div style="text-align:center">
+		<h2><a href="/cart/">Корзина</a></h2>
+	</div>
 	<div class="row">
 		<div class="col-md-10 col-md-offset-1">
-			<div class="panel panel-default">
+			<div class="panel panel-default">				
 				<div class="panel-heading">Home</div>
 
 				<div class="panel-body">
@@ -55,9 +73,13 @@
 						<div class="col-md-6">
 							<form action='cart/add/{{$one->id}}' method='post'>
 							<input type="hidden" name="_token" value="{{ csrf_token() }}">
-								<input type='number' name='colvo' value='1' min='1' max='100' required>
-								<button type="submit" class="btn btn-default">
-									<span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"> Купить</span></button>
+								<input type='number' name='colvo' id='colvo-{{$one->id}}' value='1' min='1' max='100' required>
+								<button type="submit" data="{{$one->id}}" class="btn btn-default buy">
+									<span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"> Купить</span>
+								</button>
+								<span id="data-{{$one->id}}">
+									
+								</span>
 							</form>
 						</div>
 						<div style="clear:both"></div>

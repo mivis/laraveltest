@@ -1,4 +1,22 @@
 $(function(){
+	$('.buy').bind('click', function(q) {
+		q.preventDefault();
+		var data1=$(this).attr('data');
+		var colvo=$('#colvo-'+data1).val();
+		
+		$.ajax({
+			type:'get',
+			url:'ajax/buy',
+			data:'id='+data1+'&colvo='+colvo,
+			success:function(data) {
+				$('#data-'+data1).text('Добавлено: '+colvo+' шт.');
+				$('.cart-window').css('display','block').html(data);
+			},
+			error:function(msg){
+				console.log(msg);
+			}
+		})
+	});
 	var fx={
 		'initModal':function(){
 			if($('.modal-window').length==0){
